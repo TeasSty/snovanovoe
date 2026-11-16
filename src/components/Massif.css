@@ -1,0 +1,58 @@
+.massif {
+  position: relative;
+  min-height: min(78svh, 40rem);
+  display: grid;
+  align-items: end;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.massif__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.massif__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  outline: none;
+}
+
+.massif__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(26, 22, 18, 0.92) 0%, rgba(26, 22, 18, 0.55) 48%, rgba(26, 22, 18, 0.25) 100%),
+    linear-gradient(180deg, transparent 40%, rgba(26, 22, 18, 0.7) 100%);
+}
+
+.massif__content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: var(--space-xl) clamp(1rem, 4vw, 2.5rem);
+  display: grid;
+  gap: 0.85rem;
+  max-width: 36rem;
+  justify-self: start;
+}
+
+.massif__content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.massif__content p {
+  color: var(--ash);
+}
+
+.massif__content .btn {
+  width: fit-content;
+  margin-top: 0.5rem;
+}

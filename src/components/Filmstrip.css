@@ -1,0 +1,137 @@
+.filmstrip {
+  padding: var(--space-xl) 0 var(--space-lg);
+  background:
+    radial-gradient(ellipse at top, rgba(154, 123, 82, 0.12), transparent 55%),
+    var(--ink);
+  overflow: hidden;
+}
+
+.filmstrip__intro {
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2.5rem);
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: var(--space-lg);
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oak);
+  font-weight: 600;
+}
+
+.filmstrip__intro h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.filmstrip__lead {
+  max-width: 38rem;
+  color: var(--ash);
+}
+
+.filmstrip__viewport {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: stretch;
+  gap: 0.35rem;
+  padding: 0.85rem 0;
+  background: var(--ink-soft);
+  border-block: 1px solid rgba(196, 184, 168, 0.18);
+}
+
+.filmstrip__sprocket {
+  width: 1.1rem;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 10px,
+      rgba(196, 184, 168, 0.35) 10px 16px,
+      transparent 16px 28px
+    );
+}
+
+.filmstrip__track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  padding: 0.5rem clamp(0.5rem, 2vw, 1.25rem);
+  will-change: transform;
+}
+
+.filmstrip__frame {
+  margin: 0;
+  width: min(78vw, 22rem);
+  flex: 0 0 auto;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.filmstrip__shot {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #000;
+}
+
+.filmstrip__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease);
+  outline: none;
+}
+
+.filmstrip__frame:hover .filmstrip__shot img {
+  transform: scale(1.04);
+}
+
+.filmstrip__frame figcaption {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.55rem;
+  row-gap: 0.25rem;
+  align-items: center;
+}
+
+.filmstrip__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--brand);
+  grid-row: 1;
+}
+
+.filmstrip__label {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.filmstrip__caption {
+  grid-column: 2;
+  color: var(--ash);
+  font-size: 0.92rem;
+}
+
+@media (min-width: 900px) {
+  .filmstrip__frame {
+    width: 24rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filmstrip__frame:hover .filmstrip__shot img {
+    transform: none;
+  }
+}

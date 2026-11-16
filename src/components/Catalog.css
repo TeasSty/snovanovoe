@@ -1,0 +1,134 @@
+.catalog {
+  padding: var(--space-xl) clamp(1rem, 4vw, 2.5rem);
+  background:
+    radial-gradient(ellipse at bottom right, rgba(200, 16, 46, 0.08), transparent 45%),
+    var(--ink);
+}
+
+.catalog__head {
+  width: min(100%, var(--max));
+  margin: 0 auto var(--space-lg);
+  display: grid;
+  gap: 1rem;
+}
+
+.catalog__head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-top: 0.35rem;
+}
+
+.catalog__lead {
+  margin: 0;
+  color: var(--ash);
+  max-width: 36rem;
+}
+
+.catalog__list {
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.catalog__item {
+  display: grid;
+  gap: 0.85rem;
+  color: inherit;
+  transition: opacity 0.25s var(--ease);
+}
+
+.catalog__item:hover,
+.catalog__item:focus-visible {
+  opacity: 0.92;
+}
+
+.catalog__item:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+}
+
+.catalog__shot {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #0c0a08;
+}
+
+.catalog__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  outline: none;
+  transition: transform 0.7s var(--ease);
+}
+
+.catalog__item:hover .catalog__shot img {
+  transform: scale(1.03);
+}
+
+.catalog__meta {
+  display: grid;
+  gap: 0.35rem;
+  padding-right: 0.5rem;
+}
+
+.catalog__kind {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--oak);
+  font-weight: 600;
+}
+
+.catalog__meta h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.catalog__meta p {
+  margin: 0;
+  color: var(--ash);
+  font-size: 0.92rem;
+}
+
+.catalog__price {
+  margin-top: 0.25rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--dust);
+}
+
+.catalog__all {
+  display: inline-flex;
+  width: fit-content;
+  margin: var(--space-md) auto 0;
+  margin-left: max(0px, calc((100% - min(100%, var(--max))) / 2));
+}
+
+@media (min-width: 700px) {
+  .catalog__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1.25rem;
+  }
+
+  .catalog__head {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog__item:hover .catalog__shot img {
+    transform: none;
+  }
+}
