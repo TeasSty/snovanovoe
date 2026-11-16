@@ -7,36 +7,38 @@ const items = [
     title: 'Пуфик собственного производства',
     kind: 'Новое изделие',
     price: '8 900 ₽',
-    note: 'Мех / кожа / шеннил · каркас дерево+фанера',
+    note: 'Собственное производство · материалы на выбор',
     src: 'images/catalog-pouf-geo.jpg',
+    href: 'https://vk.ru/market/product/pufik-sobstvennoe-proizvodstvo-novy-56056334-13394269',
   },
   {
     id: 'pouf-green',
-    title: 'Пуфик · шеннил',
+    title: 'Пуфик собственного производства',
     kind: 'Новое изделие',
     price: '8 900 ₽',
-    note: '43×43×45 см · наполнитель поролон',
+    note: 'Другая обивка · тот же каркас',
     src: 'images/catalog-pouf-green.jpg',
+    href: 'https://vk.ru/market/product/pufik-sobstvennoe-proizvodstvo-novy-56056334-13394261',
   },
   {
-    id: 'chair-full',
+    id: 'chair-1',
     title: 'Стул с полной реставрацией',
     kind: 'Реставрация под ключ',
-    price: 'от 8 500 ₽',
-    note: 'Циклёвка, покрытие, перетяжка — по состоянию',
+    price: '11 000 ₽',
+    note: 'Циклёвка, покрытие, перетяжка',
     src: 'images/catalog-chair-1.jpg',
+    href: 'https://vk.ru/market/product/stul-s-uslugoy-polnoy-restavratsii-56056334-12838752',
   },
   {
-    id: 'chair-restore',
-    title: 'Стул после реставрации',
-    kind: 'Готов к заказу / пример',
-    price: 'от 10 200 ₽',
-    note: 'Цена зависит от каркаса и ткани',
+    id: 'chair-2',
+    title: 'Стул с полной реставрацией',
+    kind: 'Реставрация под ключ',
+    price: '11 000 ₽',
+    note: 'Другая модель из мастерской',
     src: 'images/catalog-chair-2.jpg',
+    href: 'https://vk.ru/market/product/stul-s-uslugoy-polnoy-restavratsii-56056334-12838740',
   },
 ]
-
-const VK_SHOP = 'https://vk.ru/snovanovoe'
 
 export function Catalog() {
   return (
@@ -47,17 +49,16 @@ export function Catalog() {
           <h2 id="catalog-title">Из мастерской — в дом</h2>
         </div>
         <p className="catalog__lead">
-          Свои пуфики и стулья с полной реставрацией. Актуальные позиции и фото — во ВКонтакте;
-          здесь — срез ассортимента.
+          Фото и цены с витрины ВКонтакте. Полный ассортимент — в магазине сообщества.
         </p>
       </div>
 
       <ul className="catalog__list">
         {items.map((item) => (
           <li key={item.id}>
-            <a className="catalog__item" href={VK_SHOP} target="_blank" rel="noreferrer">
+            <a className="catalog__item" href={item.href} target="_blank" rel="noreferrer">
               <div className="catalog__shot">
-                <img src={asset(item.src)} alt="" width={900} height={675} loading="lazy" />
+                <img src={asset(item.src)} alt={item.title} width={900} height={1080} loading="lazy" />
               </div>
               <div className="catalog__meta">
                 <span className="catalog__kind">{item.kind}</span>
@@ -70,7 +71,12 @@ export function Catalog() {
         ))}
       </ul>
 
-      <a className="btn btn--ghost catalog__all" href={VK_SHOP} target="_blank" rel="noreferrer">
+      <a
+        className="btn btn--ghost catalog__all"
+        href="https://vk.ru/market-56056334"
+        target="_blank"
+        rel="noreferrer"
+      >
         Весь каталог во ВКонтакте
       </a>
     </section>
