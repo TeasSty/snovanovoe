@@ -4,6 +4,7 @@
     radial-gradient(ellipse at top, rgba(154, 123, 82, 0.12), transparent 55%),
     var(--ink);
   overflow: hidden;
+  color: var(--paper);
 }
 
 .filmstrip__intro {
@@ -30,6 +31,7 @@
   letter-spacing: 0.03em;
   line-height: 0.95;
   text-transform: uppercase;
+  color: var(--paper);
 }
 
 .filmstrip__lead {
@@ -73,6 +75,7 @@
   flex: 0 0 auto;
   display: grid;
   gap: 0.85rem;
+  min-width: 0;
 }
 
 .filmstrip__shot {
@@ -85,6 +88,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 40%;
   transition: transform 0.7s var(--ease);
   outline: none;
 }
@@ -95,16 +99,18 @@
 
 .filmstrip__frame figcaption {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   grid-template-rows: auto auto;
   column-gap: 0.55rem;
-  row-gap: 0.25rem;
-  align-items: center;
+  row-gap: 0.3rem;
+  align-items: start;
+  padding-inline: 0.1rem;
 }
 
 .filmstrip__dot {
   width: 0.55rem;
   height: 0.55rem;
+  margin-top: 0.45rem;
   border-radius: 50%;
   background: var(--brand);
   grid-row: 1;
@@ -112,21 +118,49 @@
 
 .filmstrip__label {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: #fff;
+  line-height: 1.15;
 }
 
 .filmstrip__caption {
   grid-column: 2;
-  color: var(--ash);
+  color: rgba(232, 224, 212, 0.88);
   font-size: 0.92rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 @media (min-width: 900px) {
+  .filmstrip__viewport {
+    width: min(100%, var(--max));
+    margin-inline: auto;
+    padding-inline: clamp(0.5rem, 2vw, 1.5rem);
+    box-sizing: border-box;
+  }
+
+  .filmstrip__track {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.85rem, 1.6vw, 1.35rem);
+    padding: 0.65rem 0.35rem;
+    transform: none !important;
+    will-change: auto;
+  }
+
   .filmstrip__frame {
-    width: 24rem;
+    width: auto;
+    min-width: 0;
+  }
+
+  .filmstrip__caption {
+    font-size: 0.9rem;
   }
 }
 

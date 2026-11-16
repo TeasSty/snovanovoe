@@ -8,19 +8,19 @@ const frames = [
   {
     id: 'before',
     label: 'ДО',
-    caption: 'Следы времени, потёртый лак, мягкое «устало»',
+    caption: 'Каркас снят с лака — следы времени',
     src: asset('images/strip-before.jpg'),
   },
   {
     id: 'process',
     label: 'ПРОЦЕСС',
-    caption: 'Циклёвка, укрепление, перетяжка — руками',
+    caption: 'Циклёвка и укрепление руками',
     src: asset('images/strip-process.jpg'),
   },
   {
     id: 'after',
     label: 'ПОСЛЕ',
-    caption: 'Тот же предмет — снова в жизни дома',
+    caption: 'Тот же стул — снова в доме',
     src: asset('images/strip-after.jpg'),
   },
 ]
@@ -53,16 +53,19 @@ export function Filmstrip() {
         },
       })
 
-      gsap.to(track, {
-        x: () => Math.min(0, section.clientWidth - track.scrollWidth - 32),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top+=64',
-          end: '+=70%',
-          scrub: 0.6,
-          pin: false,
-        },
+      const mm = gsap.matchMedia()
+      mm.add('(max-width: 899px)', () => {
+        gsap.to(track, {
+          x: () => Math.min(0, section.clientWidth - track.scrollWidth - 32),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top+=64',
+            end: '+=70%',
+            scrub: 0.6,
+            pin: false,
+          },
+        })
       })
     }, section)
 
